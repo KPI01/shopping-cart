@@ -3,14 +3,12 @@ import { createContext, useReducer } from "react";
 // 5. Reducer
 export const Reducer = (state, action) => {
   let newExp = [];
-  let updatedQty = false;
 
   switch (action.type) {
     case "ADD_QTY":
       state.expenses.map((item) => {
         if (item.id === action.payload.id) {
           item.qty += action.payload.qty;
-          updatedQty = true;
         }
         newExp.push(item);
         return true;
@@ -23,7 +21,6 @@ export const Reducer = (state, action) => {
       state.expenses.map((item) => {
         if (item.id === action.payload.id) {
           item.qty -= action.payload.qty;
-          updatedQty = true;
         }
         item.qty = item.qty < 0 ? 0 : item.qty;
         newExp.push(item);
@@ -34,11 +31,9 @@ export const Reducer = (state, action) => {
       return { ...state };
 
     case "DEL_ITEM":
-      updatedQty = false;
       state.expenses.map((item) => {
         if (item.id === action.payload) {
           item.qty = 0;
-          updatedQty = true;
         }
         newExp.push(item);
         return true;

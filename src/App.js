@@ -9,7 +9,7 @@ function App() {
   return (
     <Provider>
       <div className="container">
-        <h1 className="display-1 fw-bold mb-5">Shopping Cart</h1>
+        <h1 className="display-1 fw-bold mb-5 mt-3">Shopping Cart</h1>
         <div className="container">
           <div className="row">
             <CartValue />
